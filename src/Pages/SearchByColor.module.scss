@@ -49,3 +49,18 @@
     width: 90%;
     margin: 0 auto;
 }
+
+.goToTop{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+    padding: 1rem;
+    button{
+        background-color: transparent;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+}

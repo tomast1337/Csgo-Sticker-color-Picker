@@ -2,6 +2,10 @@
     background: none;
     border: none;
     width: 100%;
+    //desktop
+    @media (min-width: 1024px) {
+        width: 50%;
+    }
     $PointerSize: 2rem;
     $TrasitionTime: 1s;
     .hue{
@@ -30,6 +34,22 @@
         transition: all $TrasitionTime ease-in-out;
     }
     .saturationPointer{
+        position: relative;
+        width: $PointerSize;
+        height: $PointerSize;
+        border-radius: 50%;
+        border: 2px solid #000;
+        transition: all $TrasitionTime ease-in-out;
+    }
+    .lightness{
+        width: 100%;
+        height: $PointerSize;
+        border-radius: 2px;
+        border: 1px solid #000;
+        border-radius: $PointerSize;
+        transition: all $TrasitionTime ease-in-out;
+    }
+    .lightnessPointer{
         position: relative;
         width: $PointerSize;
         height: $PointerSize;

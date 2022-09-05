@@ -1,7 +1,7 @@
 import * as React from "react";
 import style from "./colorPicker.module.scss";
 export default ({ setColor }: any) => {
-    const [hue, setHue] = React.useState(Math.floor(Math.random() * 360));
+    const [hue, setHue] = React.useState(180);
     const [saturation, setSaturation] = React.useState(95);
     const [lightness, setLightness] = React.useState(50);
 
@@ -34,6 +34,19 @@ export default ({ setColor }: any) => {
                 }} >
                     <div className={style.saturationPointer} style={{
                         left: `${saturation}%`,
+                        backgroundColor: `hsl(${hue}, ${saturation}%, ${lightness}%)`
+                    }} />
+                </div>
+                <div className={style.lightness} style={{
+                    backgroundImage: `linear-gradient(to right, hsl(${hue}, ${saturation}%, 0%), hsl(${hue}, ${saturation}%, 50%), hsl(${hue}, ${saturation}%, 100%))`
+                }} onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    setLightness(Math.round(x / rect.width * 100));
+                    setColor(`hsl(${hue}, ${saturation}%, ${Math.round(x / rect.width * 100)}%)`);
+                }} >
+                    <div className={style.lightnessPointer} style={{
+                        left: `${lightness}%`,
                         backgroundColor: `hsl(${hue}, ${saturation}%, ${lightness}%)`
                     }} />
                 </div>
