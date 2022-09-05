@@ -15,8 +15,8 @@ export default () => {
     const [filterGlitter, setFilterGlitter] = React.useState(true);
     const [filterLenticular, setFilterLenticular] = React.useState(true);
     const [hue, setHue] = React.useState(10);
-    const [saturation, setSaturation] = React.useState(40);
-    const [lightness, setLightness] = React.useState(50);
+    const [saturation, setSaturation] = React.useState(30);
+    const [lightness, setLightness] = React.useState(10);
 
 
     const convert = (color: string) => {
@@ -126,13 +126,14 @@ export default () => {
                                     ) {
                                     diff = true;
                                 }
+                                /*
                                 // warp around
                                 if (Math.abs(stickerH - h) > 180 - hue
                                     //&& Math.abs(stickerS - s) < saturation
                                     //&& Math.abs(stickerL - l) < lightness
                                     ) {
                                     diff = true;
-                                }
+                                }*/
                             });
                             return diff ? <StickerCard sticker={sticker} /> : null;
                         })
