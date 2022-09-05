@@ -1,8 +1,11 @@
 import * as React from "react";
+import SearchByColor from "./Pages/SearchByColor";
+import { ColorPicker } from "./components";
+export default () => {
 
-export default () => (
-  <>
-    <h1>Welcome to React Parcel Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
-  </>
-);
+    return (
+        <>
+            <SearchByColor />
+        </>
+    )
+};
