@@ -3,7 +3,7 @@
     h1{
         font-size: 2rem;
         font-weight: 700;
-        color: #000;
+        color: white;
         text-align: center;
         margin: 0;
         padding: 0;
@@ -11,7 +11,7 @@
     h2{
         font-size: 1.5rem;
         font-weight: 400;
-        color: #000;
+        color: white;
         text-align: center;
         margin: 0;
         padding: 0;
@@ -31,6 +31,21 @@
     width: 100%;
     h1{
         text-align: center;
+        color: white;
+    }
+    a{
+        text-decoration: none;
+        color: white;
     }
 
+}
+
+.stickers{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
 }
