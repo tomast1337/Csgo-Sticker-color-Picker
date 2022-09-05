@@ -22,6 +22,8 @@ export default () => {
     };
 
     React.useEffect(() => {
+        //set title
+        document.title = "CSGO Sticker Finder";
     }, [filterTournament, filterFoil, filterHolo, color]);
 
     return (
@@ -29,6 +31,7 @@ export default () => {
             <div className={style.title}>
                 <h1>CSGO Sticker Finder</h1>
                 <h2>by Nicolas Nery aka Tomast1337</h2>
+                <h3>I don't own any of the images displayed here</h3>
             </div>
             <div className={style.picker} id="top">
                 <h1>Select a color</h1>
@@ -67,7 +70,7 @@ export default () => {
                 </form>
             </div>
             <div className={style.SelectedStickers}>
-                <h1>Selected Stickers</h1>
+                <h1>Selected The Stickers</h1>
                 <div className={style.stickers}>
                     {
                         stickerData.map((sticker) => {

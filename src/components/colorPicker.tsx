@@ -1,7 +1,7 @@
 import * as React from "react";
 import style from "./colorPicker.module.scss";
 export default ({ setColor }: any) => {
-    const [hue, setHue] = React.useState(180);
+    const [hue, setHue] = React.useState(13);
     const [saturation, setSaturation] = React.useState(95);
     const [lightness, setLightness] = React.useState(50);
 
