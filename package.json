@@ -1,7 +1,8 @@
 {
-  "name": "Csgo Stiker color Picker",
+  "name": "Csgo Sticker color Picker",
   "version": "0.1.0",
-  "description": "",
+  "description": "Csgo Sticker color Picker",
+  "homepage": "https://github.com/tomast1337/Csgo-Sticker-color-Picker",
   "scripts": {
     "start": "vite",
     "build": "vite build",

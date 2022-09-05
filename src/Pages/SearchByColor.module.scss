@@ -20,12 +20,16 @@
     }
 
     h3{
-        font-size: .5rem;
+        font-size: .9rem;
         font-weight: 400;
         color: white;
         text-align: center;
         margin: 0;
         padding: 0;
+        a {
+            color: red;
+            text-decoration: none;
+        }
     }
 }
 

@@ -15,7 +15,7 @@ export default () => {
     const [filterGlitter, setFilterGlitter] = React.useState(true);
     const [filterLenticular, setFilterLenticular] = React.useState(true);
     const [hue, setHue] = React.useState(10);
-    const [saturation, setSaturation] = React.useState(100);
+    const [saturation, setSaturation] = React.useState(40);
     const [lightness, setLightness] = React.useState(50);
 
 
@@ -37,11 +37,17 @@ export default () => {
                 <h1>CSGO Sticker Finder</h1>
                 <h2>by Nicolas Nery aka Tomast1337</h2>
                 <h3>I don't own any of the images displayed here</h3>
+                <h3>
+                    Source Code on &nbsp;
+                    <a href="https://github.com/tomast1337/Csgo-Sticker-color-Picker">
+                        Github
+                    </a>
+                </h3>
             </div>
             <div className={style.picker} id="top">
                 <h1>Select a color</h1>
                 <ColorPicker setColor={setColor} />
-                <h1>Filter</h1>
+                <h1>Filters</h1>
                 <form>
                     <label style={{ color: "peru" }}>
                         <input type="checkbox" checked={!filterGlitter} onChange={() => setFilterGlitter(!filterGlitter)} />
@@ -114,9 +120,17 @@ export default () => {
                                 const stickerS = parseInt(color.split(",")[1].split("%")[0]);
                                 const stickerL = parseInt(color.split(",")[2].split(")")[0].split("%")[0]);
 
-                                if (Math.abs(stickerH - h) < hue 
-                                && Math.abs(stickerS - s) < saturation
-                                && Math.abs(stickerL - l) < lightness) {
+                                if (Math.abs(stickerH - h) < hue
+                                    && Math.abs(stickerS - s) < saturation
+                                    && Math.abs(stickerL - l) < lightness
+                                    ) {
+                                    diff = true;
+                                }
+                                // warp around
+                                if (Math.abs(stickerH - h) > 180 - hue
+                                    //&& Math.abs(stickerS - s) < saturation
+                                    //&& Math.abs(stickerL - l) < lightness
+                                    ) {
                                     diff = true;
                                 }
                             });
