@@ -17,13 +17,13 @@ export default (props: { sticker: stickerType }) => {
                 <img src={props.sticker.image_url} alt={props.sticker.name} />
                 <div className={style.coloInfo}>
                     <span style={{
-                        backgroundColor: `hsl(${props.sticker.dominant_colors[0]}, ${60}%, ${50}%)`
+                        backgroundColor: props.sticker.dominant_colors[0],
                     }} />
                     <span style={{
-                        backgroundColor: `hsl(${props.sticker.dominant_colors[1]}, ${60}%, ${50}%)`
+                        backgroundColor: props.sticker.dominant_colors[1],
                     }} />
                     <span style={{
-                        backgroundColor: `hsl(${props.sticker.dominant_colors[2]}, ${60}%, ${50}%)`
+                        backgroundColor: props.sticker.dominant_colors[2],
                     }} />
                 </div>
             </a>

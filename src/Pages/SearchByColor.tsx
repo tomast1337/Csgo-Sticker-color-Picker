@@ -6,7 +6,7 @@ import { stickerType } from "../types";
 
 
 export default () => {
-    const [color, setColor] = React.useState("red");
+    const [color, setColor] = React.useState("hsl(0, 0%, 0%)");
 
     const [filterTournament, setFilterTournament] = React.useState(true);
     const [filterFoil, setFilterFoil] = React.useState(true);
@@ -14,6 +14,10 @@ export default () => {
     const [filterGold, setFilterGold] = React.useState(true);
     const [filterGlitter, setFilterGlitter] = React.useState(true);
     const [filterLenticular, setFilterLenticular] = React.useState(true);
+    const [hue, setHue] = React.useState(10);
+    const [saturation, setSaturation] = React.useState(100);
+    const [lightness, setLightness] = React.useState(50);
+
 
     const convert = (color: string) => {
         //grab the hue form the hls color
@@ -24,7 +28,8 @@ export default () => {
     React.useEffect(() => {
         //set title
         document.title = "CSGO Sticker Finder";
-    }, [filterTournament, filterFoil, filterHolo, color]);
+        console.log({ color });
+    }, [hue, saturation, lightness, filterTournament, filterFoil, filterHolo, color]);
 
     return (
         <>
@@ -36,6 +41,7 @@ export default () => {
             <div className={style.picker} id="top">
                 <h1>Select a color</h1>
                 <ColorPicker setColor={setColor} />
+                <h1>Filter</h1>
                 <form>
                     <label style={{ color: "peru" }}>
                         <input type="checkbox" checked={!filterGlitter} onChange={() => setFilterGlitter(!filterGlitter)} />
@@ -68,6 +74,24 @@ export default () => {
                         Tournament
                     </label>
                 </form>
+                <h1>Sensitivity</h1>
+                <form>
+                    <label style={{ color: "peru" }}>
+                        <input type="range" min="0" max="180" value={hue} onChange={(e) => setHue(Number(e.target.value))} />
+                        <span />
+                        Hue
+                    </label>
+                    <label style={{ color: "peru" }}>
+                        <input type="range" min="0" max="100" value={saturation} onChange={(e) => setSaturation(Number(e.target.value))} />
+                        <span />
+                        Saturation
+                    </label>
+                    <label style={{ color: "peru" }}>
+                        <input type="range" min="0" max="100" value={lightness} onChange={(e) => setLightness(Number(e.target.value))} />
+                        <span />
+                        Lightness
+                    </label>
+                </form>
             </div>
             <div className={style.SelectedStickers}>
                 <h1>Selected The Stickers</h1>
@@ -82,9 +106,19 @@ export default () => {
                             if (sticker.name.includes("(Lenticular)") && filterLenticular) return null;
 
                             let diff = false;
-                            const hue = convert(color);
-                            sticker.dominant_colors.forEach((color: number) => {
-                                if (Math.abs(hue - color) < 20) diff = true;
+                            const h: number = parseInt(color.split(",")[0].split("(")[1]);
+                            const s: number = parseInt(color.split(",")[1].split("%")[0]);
+                            const l: number = parseInt(color.split(",")[2].split(")")[0].split("%")[0]);
+                            sticker.dominant_colors.forEach((color: string) => {
+                                const stickerH = parseInt(color.split(",")[0].split("(")[1]);
+                                const stickerS = parseInt(color.split(",")[1].split("%")[0]);
+                                const stickerL = parseInt(color.split(",")[2].split(")")[0].split("%")[0]);
+
+                                if (Math.abs(stickerH - h) < hue 
+                                && Math.abs(stickerS - s) < saturation
+                                && Math.abs(stickerL - l) < lightness) {
+                                    diff = true;
+                                }
                             });
                             return diff ? <StickerCard sticker={sticker} /> : null;
                         })

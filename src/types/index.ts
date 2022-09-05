@@ -3,7 +3,7 @@ type stickerType = {
     "image_url": string;
     "type": string;
     "dominant_colors": [
-        number, number, number
+        string, string, string
     ];
 };
 
