@@ -34,29 +34,35 @@ export default () => {
                 <h1>Select a color</h1>
                 <ColorPicker setColor={setColor} />
                 <form>
-                    <label>
-                        <input type="checkbox" checked={!filterTournament} onChange={() => setFilterTournament(!filterTournament)} />
-                        Tournament Stickers
-                    </label>
-                    <label>
+                    <label style={{ color: "peru" }}>
                         <input type="checkbox" checked={!filterGlitter} onChange={() => setFilterGlitter(!filterGlitter)} />
+                        <span />
                         (Glitter)
                     </label>
-                    <label>
+                    <label style={{ color: "linen" }}>
                         <input type="checkbox" checked={!filterLenticular} onChange={() => setFilterLenticular(!filterLenticular)} />
+                        <span />
                         (Lenticular)
                     </label>
-                    <label>
+                    <label style={{ color: "fuchsia" }}>
                         <input type="checkbox" checked={!filterFoil} onChange={() => setFilterFoil(!filterFoil)} />
+                        <span />
                         (Foil)
                     </label>
-                    <label>
+                    <label style={{ color: "slateblue" }}>
                         <input type="checkbox" checked={!filterHolo} onChange={() => setFilterHolo(!filterHolo)} />
+                        <span />
                         (Holo)
                     </label>
-                    <label>
+                    <label style={{ color: "gold" }}>
                         <input type="checkbox" checked={!filterGold} onChange={() => setFilterGold(!filterGold)} />
+                        <span />
                         (Gold)
+                    </label>
+                    <label style={{ color: "red" }}>
+                        <input type="checkbox" checked={!filterTournament} onChange={() => setFilterTournament(!filterTournament)} />
+                        <span />
+                        Tournament
                     </label>
                 </form>
             </div>
