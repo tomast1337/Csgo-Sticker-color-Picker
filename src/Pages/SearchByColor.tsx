@@ -35,14 +35,6 @@ export default () => {
         <>
             <div className={style.title}>
                 <h1>CSGO Sticker Finder</h1>
-                <h2>by Nicolas Nery aka Tomast1337</h2>
-                <h3>I don't own any of the images displayed here</h3>
-                <h3>
-                    Source Code on &nbsp;
-                    <a href="https://github.com/tomast1337/Csgo-Sticker-color-Picker">
-                        Github
-                    </a>
-                </h3>
             </div>
             <div className={style.picker} id="top">
                 <h1>Select a color</h1>
@@ -123,7 +115,7 @@ export default () => {
                                 if (Math.abs(stickerH - h) < hue
                                     && Math.abs(stickerS - s) < saturation
                                     && Math.abs(stickerL - l) < lightness
-                                    ) {
+                                ) {
                                     diff = true;
                                 }
                                 /*
@@ -135,13 +127,25 @@ export default () => {
                                     diff = true;
                                 }*/
                             });
-                            return diff ? <StickerCard sticker={sticker} /> : null;
+                            return diff ? <StickerCard sticker={sticker} key={sticker.name} /> : null;
                         })
                     }
                 </div>
             </div>
             <div className={style.goToTop}>
                 <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Back to the top</button>
+            </div>
+            <div className={style.picker}>
+                <h2>
+                    by Nicolas Nery aka Tomast1337
+                </h2>
+                <h3>I don't own any of the images displayed here</h3>
+                <h1>
+                    Source Code on &nbsp;
+                    <a href="https://github.com/tomast1337/Csgo-Sticker-color-Picker">
+                        Github
+                    </a>
+                </h1>
             </div>
         </>
     )
