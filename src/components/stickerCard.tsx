@@ -31,14 +31,9 @@ export default (props: { sticker: stickerType }) => {
             y: degY
         });
 
-        // update the spot light
-        const range = { max: 225, min: 50 };
-
-        const lightPosX = range.max + range.min * factorX;
-        const lightPosY = range.max + range.min * factorY;
-
-        console.log({ lightPosX, lightPosY });
-
+        // lightPos equal to the mouse position
+        const lightPosX = x / width * 100;
+        const lightPosY = y / height * 100;
         setLightPos({
             x: lightPosX,
             y: lightPosY
@@ -63,7 +58,11 @@ export default (props: { sticker: stickerType }) => {
                 <a href={
                     `https://steamcommunity.com/market/search?q=${props.sticker.name.replace(" ", "%20")}`
                 } target="_blank">
-                    <h1>
+                    <h1
+                    style={{
+                        background: `linear-gradient(120deg, ${props.sticker.dominant_colors[1]} 0%, ${props.sticker.dominant_colors[0]} 50% , ${props.sticker.dominant_colors[2]} 100%)`,
+                        WebkitBackgroundClip: "text",
+                    }}>
                         {props.sticker.name}
                     </h1>
 
@@ -73,7 +72,7 @@ export default (props: { sticker: stickerType }) => {
                             transform: `translate(${lightPos.x}%, ${lightPos.y}%)`,
                             display: lightPos.x === 0 && lightPos.y === 0 ? "none" : "inline-block",
                             background: `radial-gradient(circle,
-                                rgba(255, 255, 255, ${0.1}) 0%,
+                                rgba(255, 255, 255, ${0.2}) 0%,
                                 rgba(255, 255, 255, 0) 80%)`
                         }} />
 
@@ -81,15 +80,16 @@ export default (props: { sticker: stickerType }) => {
                         src={props.sticker.image_url}
                         alt={props.sticker.name} />
                     <div className={style.coloInfo}>
-                        <span style={{
-                            backgroundColor: props.sticker.dominant_colors[0],
-                        }} />
-                        <span style={{
-                            backgroundColor: props.sticker.dominant_colors[1],
-                        }} />
-                        <span style={{
-                            backgroundColor: props.sticker.dominant_colors[2],
-                        }} />
+                        {
+                            props.sticker.dominant_colors.map((color:string, index:number) => (
+                                <span 
+                                key={index}
+                                style={{
+                                    backgroundColor: color,
+                                }} />
+                            ))
+                                
+                        }
                     </div>
                 </a>
             </div>

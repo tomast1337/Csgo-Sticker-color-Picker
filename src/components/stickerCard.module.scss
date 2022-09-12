@@ -1,20 +1,12 @@
 @keyframes GrowIn {
     0% {
         transform: scale(0);
+        opacity: 0;
+        transform: rotate(45deg);
     }
 
     100% {
         transform: scale(1);
-    }
-}
-
-@keyframes imageFadeIn {
-    0% {
-        opacity: 0;
-        transform: rotate(120deg);
-    }
-
-    100% {
         opacity: 1;
         transform: rotate(0deg);
     }
@@ -26,18 +18,24 @@
     margin-bottom: 5rem;
     animation: GrowIn 1s ease-in-out;
     animation-fill-mode: backwards;
+    background-image: url("/assets/sticker background.png") , linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    background-size: 100px 100px;
+    border-radius: 5rem;
 
     h1 {
         margin: 0;
-        font-size: 1.5rem;
-        font-family: Helvetica;
+        font-size: 2.3rem;
+        font-family: helvetica neue,Helvetica,Arial,sans-serif;
+        color: transparent !important;
+        font-weight: 700;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
     }
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        animation: imageFadeIn 1s ease-in-out;
         margin-bottom: -2rem;
         margin-top: -2rem;
     }
@@ -56,6 +54,7 @@
             height: 3rem;
             border-radius: 50%;
             box-shadow: 0 0 2rem rgba(255, 255, 255, 0.115);
+            border: 1px solid black;
         }
     }
 
@@ -64,8 +63,8 @@
         background-repeat: no-repeat;
         background-position: center;
         
-        height: 5rem;
-        width: 5rem;
+        height: 10rem;
+        width: 10rem;
         z-index: 1;
         position: absolute;
     }
