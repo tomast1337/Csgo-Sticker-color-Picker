@@ -137,7 +137,10 @@ export default () => {
             </div>
             <div className={style.picker}>
                 <h2>
-                    by Nicolas Nery aka Tomast1337
+                    by Nicolas Nery aka 
+                    <a href="https://steamcommunity.com/profiles/76561198046523908">
+                    Tomast1337
+                    </a>
                 </h2>
                 <h3>I don't own any of the images displayed here</h3>
                 <h1>

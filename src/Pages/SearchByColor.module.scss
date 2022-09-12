@@ -120,8 +120,11 @@
     button {
         background-color: transparent;
         border: none;
-        font-size: 2rem;
+        font-size: 3rem;
         color: white;
         cursor: pointer;
+        font-family: helvetica neue,Helvetica,Arial,sans-serif;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
     }
 }
